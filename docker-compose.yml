@@ -12,6 +12,7 @@ services:
       - bytebank_network
     depends_on:
       - util-ui
+      - util-api
       - app-header
       - app-dashboard
       - app-transactions
@@ -27,6 +28,9 @@ services:
       - /app/node_modules
     networks:
       - bytebank_network
+    depends_on:
+      - util-ui
+      - util-api
 
   app-dashboard:
     build:
@@ -60,6 +64,18 @@ services:
       - "8310:8310"
     volumes:
       - ./projects/util-ui:/app
+      - /app/node_modules
+    networks:
+      - bytebank_network
+
+  util-api:
+    build:
+      context: ./projects/util-api
+      dockerfile: Dockerfile
+    ports:
+      - "8311:8311"
+    volumes:
+      - ./projects/util-api:/app
       - /app/node_modules
     networks:
       - bytebank_network
