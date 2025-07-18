@@ -11,7 +11,7 @@
     "start": "docker compose up --build",
     "stop": "docker compose down",
     "install-all": "npm install",
-    "nuke-projects": "rm -rf projects node_modules"
+    "nuke-all": "rm -rf projects node_modules package-lock.json"
   },
   "keywords": [],
   "author": "",

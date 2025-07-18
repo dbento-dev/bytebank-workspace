@@ -22,6 +22,7 @@ services:
     volumes:
       - ./projects/app-header:/app
       - /app/node_modules
+      # - ./projects/api-client:/app/node_modules/@bytebank/api-client
     networks:
       - bytebank_network
 
@@ -35,17 +36,6 @@ services:
       - /app/node_modules
     networks:
       - bytebank_network
-
-  # app-transaction:
-  #   build:
-  #     context: ./projects/app-transaction
-  #   ports:
-  #     - "3003:3003"
-  #   volumes:
-  #     - ./projects/app-transaction:/app
-  #     - /app/node_modules
-  #   networks:
-  #     - bytebank_network
 
   util-ui:
     build:

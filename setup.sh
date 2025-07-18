@@ -12,12 +12,13 @@ REPOS=(
 
   # Pacotes compartilhados / utils
   "git@github.com:dbento-dev/bytebank-util-ui.git"
-  # "git@github.com:seu-usuario/bytebank-api-client.git"
+  # "git@github.com:dbento-dev/bytebank-api-client.git"
   # "git@github.com:seu-usuario/bytebank-state-management.git"
 )
 
-SHARED_PACKAGES=("util-ui")
-CONSUMER_APPS=("root" "app-header", "app-dashboard")
+# SHARED_PACKAGES=("util-ui", "api-client")
+SHARED_PACKAGES=()
+CONSUMER_APPS=("root" "app-header" "app-dashboard" "util-ui")
 # CONSUMER_APPS=("root" "app-header" "app-dashboard" "app-transactions")
 
 PROJECTS_DIR="projects"
