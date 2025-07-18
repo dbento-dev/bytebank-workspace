@@ -1,0 +1,20 @@
+{
+  "name": "bytebank-workspace",
+  "version": "1.0.0",
+  "description": "Bytebank workspace for managing multiple projects",
+  "private": true,
+  "workspaces": [
+    "projects/*"
+  ],
+  "scripts": {
+    "setup": "bash setup.sh",
+    "start": "docker compose up --build",
+    "stop": "docker compose down",
+    "install-all": "npm install",
+    "nuke-projects": "rm -rf projects node_modules"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
