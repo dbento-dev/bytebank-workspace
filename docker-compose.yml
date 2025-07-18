@@ -1,45 +1,61 @@
 services:
+  util-client-api-init:
+    image: node:22
+    volumes:
+      - ./projects/util-client-api:/src
+      - util_client_api_volume:/dest
+    command: sh -c "cp -r /src/* /dest"
+
   root:
     build:
-      context: ./projects/root
+      context: ./projects
+      dockerfile: root/Dockerfile
     ports:
       - "3000:3000"
     volumes:
       - ./projects/root:/app
+      # - ./projects/util-client-api:/app/../util-client-api
       - /app/node_modules
     networks:
       - bytebank_network
     depends_on:
+      - util-client-api-init
       - app-header
       - app-dashboard
       # - app-transaction
 
   app-header:
     build:
-      context: ./projects/app-header
+      context: ./projects/
+      dockerfile: app-header/Dockerfile
     ports:
       - "3001:3001"
     volumes:
       - ./projects/app-header:/app
+      - util_client_api_volume:/app/../util-client-api
       - /app/node_modules
-      # - ./projects/api-client:/app/node_modules/@bytebank/api-client
     networks:
       - bytebank_network
+    depends_on:
+      - util-client-api-init
 
   app-dashboard:
     build:
-      context: ./projects/app-dashboard
+      context: ./projects
+      dockerfile: app-dashboard/Dockerfile
     ports:
       - "3002:3002"
     volumes:
       - ./projects/app-dashboard:/app
+      - ./projects/util-client-api:/app/../util-client-api
       - /app/node_modules
     networks:
       - bytebank_network
 
   util-ui:
     build:
-      context: ./projects/util-ui
+      context: ./projects
+      dockerfile: util-ui/Dockerfile
     ports:
       - "8310:8310"
     volumes:
@@ -51,3 +67,6 @@ services:
 networks:
   bytebank_network:
     driver: bridge
+
+volumes:
+  util_client_api_volume:
