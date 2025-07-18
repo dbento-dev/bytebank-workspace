@@ -1,61 +1,61 @@
 services:
-  util-client-api-init:
-    image: node:22
-    volumes:
-      - ./projects/util-client-api:/src
-      - util_client_api_volume:/dest
-    command: sh -c "cp -r /src/* /dest"
-
   root:
     build:
-      context: ./projects
-      dockerfile: root/Dockerfile
+      context: ./projects/root
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
     volumes:
       - ./projects/root:/app
-      # - ./projects/util-client-api:/app/../util-client-api
       - /app/node_modules
     networks:
       - bytebank_network
     depends_on:
-      - util-client-api-init
+      - util-ui
       - app-header
       - app-dashboard
-      # - app-transaction
+      - app-transactions
 
   app-header:
     build:
-      context: ./projects/
-      dockerfile: app-header/Dockerfile
+      context: ./projects/app-header
+      dockerfile: Dockerfile
     ports:
       - "3001:3001"
     volumes:
       - ./projects/app-header:/app
-      - util_client_api_volume:/app/../util-client-api
       - /app/node_modules
     networks:
       - bytebank_network
-    depends_on:
-      - util-client-api-init
 
   app-dashboard:
     build:
-      context: ./projects
-      dockerfile: app-dashboard/Dockerfile
+      context: ./projects/app-dashboard
+      dockerfile: Dockerfile
     ports:
       - "3002:3002"
     volumes:
       - ./projects/app-dashboard:/app
-      - ./projects/util-client-api:/app/../util-client-api
+      - /app/node_modules
+    networks:
+      - bytebank_network
+
+  app-transactions:
+    build:
+      context: ./projects/app-transactions
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3003"
+    volumes:
+      - ./projects/app-transactions:/app
       - /app/node_modules
     networks:
       - bytebank_network
 
   util-ui:
     build:
-      context: ./projects
-      dockerfile: util-ui/Dockerfile
+      context: ./projects/util-ui
+      dockerfile: Dockerfile
     ports:
       - "8310:8310"
     volumes:
@@ -67,6 +67,3 @@ services:
 networks:
   bytebank_network:
     driver: bridge
-
-volumes:
-  util_client_api_volume:

@@ -8,7 +8,7 @@ REPOS=(
   # MFEs
   "git@github.com:dbento-dev/bytebank-app-header.git"
   "git@github.com:dbento-dev/bytebank-app-dashboard.git"
-  # "git@github.com:dbento-dev/bytebank-app-transactions.git"
+  "git@github.com:dbento-dev/bytebank-app-transactions.git"
 
   # Pacotes compartilhados / utils
   "git@github.com:dbento-dev/bytebank-util-ui.git"
@@ -18,7 +18,7 @@ REPOS=(
 
 # SHARED_PACKAGES=("util-ui", "api-client")
 SHARED_PACKAGES=()
-CONSUMER_APPS=("root" "app-header" "app-dashboard" "util-ui")
+CONSUMER_APPS=("root" "app-header" "app-dashboard" "app-transactions" "util-ui")
 # CONSUMER_APPS=("root" "app-header" "app-dashboard" "app-transactions")
 
 PROJECTS_DIR="projects"
