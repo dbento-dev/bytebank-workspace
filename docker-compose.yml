@@ -13,6 +13,7 @@ services:
     depends_on:
       - util-ui
       - util-api
+      - util-store
       - app-header
       - app-dashboard
       - app-transactions
@@ -76,6 +77,18 @@ services:
       - "8311:8311"
     volumes:
       - ./projects/util-api:/app
+      - /app/node_modules
+    networks:
+      - bytebank_network
+
+  util-store:
+    build:
+      context: ./projects/util-store
+      dockerfile: Dockerfile
+    ports:
+      - "8312:8312"
+    volumes:
+      - ./projects/util-store:/app
       - /app/node_modules
     networks:
       - bytebank_network

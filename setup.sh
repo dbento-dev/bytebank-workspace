@@ -13,7 +13,7 @@ REPOS=(
   # Pacotes compartilhados / utils
   "git@github.com:dbento-dev/bytebank-util-ui.git"
   "git@github.com:dbento-dev/bytebank-util-api.git"
-  # "git@github.com:seu-usuario/bytebank-state-management.git"
+  "git@github.com:dbento-dev/bytebank-util-store.git"  
 )
 
 
