@@ -1,13 +1,17 @@
 services:
   root:
     build:
-      context: ./projects/root
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: projects/root/Dockerfile
+      args:
+        PROJECT_NAME: root
     ports:
       - "3000:3000"
     volumes:
+      # - ./projects/root:/app/projects/root
       - ./projects/root:/app
       - /app/node_modules
+
     networks:
       - bytebank_network
     depends_on:
@@ -20,13 +24,17 @@ services:
 
   app-header:
     build:
-      context: ./projects/app-header
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: projects/app-header/Dockerfile
+      args:
+        PROJECT_NAME: app-header
     ports:
       - "3001:3001"
     volumes:
+      # - ./projects/app-header:/app/projects/app-header
       - ./projects/app-header:/app
       - /app/node_modules
+
     networks:
       - bytebank_network
     depends_on:
@@ -35,61 +43,81 @@ services:
 
   app-dashboard:
     build:
-      context: ./projects/app-dashboard
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: projects/app-dashboard/Dockerfile
+      args:
+        PROJECT_NAME: app-dashboard
     ports:
       - "3002:3002"
     volumes:
+      # - ./projects/app-dashboard:/app/projects/app-dashboard
       - ./projects/app-dashboard:/app
       - /app/node_modules
+
     networks:
       - bytebank_network
 
   app-transactions:
     build:
-      context: ./projects/app-transactions
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: projects/app-transactions/Dockerfile
+      args:
+        PROJECT_NAME: app-transactions
     ports:
       - "3003:3003"
     volumes:
+      # - ./projects/app-transactions:/app/projects/app-transactions
       - ./projects/app-transactions:/app
       - /app/node_modules
+
     networks:
       - bytebank_network
 
   util-ui:
     build:
-      context: ./projects/util-ui
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: projects/util-ui/Dockerfile
+      args:
+        PROJECT_NAME: util-ui
     ports:
       - "8310:8310"
     volumes:
+      # - ./projects/util-ui:/app/projects/util-ui
       - ./projects/util-ui:/app
       - /app/node_modules
+
     networks:
       - bytebank_network
 
   util-api:
     build:
-      context: ./projects/util-api
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: projects/util-api/Dockerfile
+      args:
+        PROJECT_NAME: util-api
     ports:
       - "8311:8311"
     volumes:
+      # - ./projects/util-api:/app/projects/util-api
       - ./projects/util-api:/app
       - /app/node_modules
+
     networks:
       - bytebank_network
 
   util-store:
     build:
-      context: ./projects/util-store
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: projects/util-store/Dockerfile
+      args:
+        PROJECT_NAME: util-store
     ports:
       - "8312:8312"
     volumes:
+      # - ./projects/util-store:/app/projects/util-store
       - ./projects/util-store:/app
       - /app/node_modules
+
     networks:
       - bytebank_network
 
