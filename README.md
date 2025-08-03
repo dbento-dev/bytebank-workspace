@@ -100,6 +100,8 @@ Com o Docker, você não precisa se preocupar em rodar cada projeto individualme
     A aplicação principal estará disponível em: **http://localhost:3000**
 
     > ✨ **Pronto!** Todos os micro-frontends e utilitários estarão rodando e se comunicando dentro da rede Docker.
+
+
     > ✨ **Para para uma experiência completa, é preciso executar o backend que está no repositório:** **[bytebank-api](https://github.com/dbento-dev/bytebank-api)**
 
 ---
