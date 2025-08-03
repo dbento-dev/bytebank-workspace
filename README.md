@@ -104,6 +104,36 @@ Com o Docker, você não precisa se preocupar em rodar cada projeto individualme
 
 ---
 
+### 📂 Estrutura do Repositório
+
+```text
+bytebank-workspace/
+├── projects/                # Contém todos os micro-frontends e pacotes utilitários
+│   ├── app-dashboard/       # Micro-frontend do painel principal
+│   ├── app-header/          # Micro-frontend do cabeçalho
+│   ├── app-transactions/    # Micro-frontend da lista de transações
+    ├── root/                # Aplicação principal (shell) que integra os micro-frontends
+│   ├── util-ui/             # Pacote de componentes de UI compartilhados
+│   ├── util-api/            # Pacote de funções e hooks para comunicação com a API
+│   └── util-store/          # Pacote de lógica de estado global
+├── docker-compose.yml       # Configuração do Docker Compose para orquestrar os serviços
+├── package.json             # Configuração do npm Workspaces e scripts
+├── README.md                # Documentação do projeto
+└── setup.sh                 # Script de setup inicial
+```
+
+### Repositórios mfes clonados pelo script de setup
+
+  > - [app-root](https://github.com/dbento-dev/bytebank-root)
+  > - [app-header](https://github.com/dbento-dev/bytebank-app-header)
+  > - [app-dashboard](https://github.com/dbento-dev/bytebank-app-dashboard)
+  > - [app-transactions](https://github.com/dbento-dev/bytebank-app-transactions)
+  > - [util-ui](https://github.com/dbento-dev/bytebank-util-ui)
+  > - [util-api](https://github.com/dbento-dev/bytebank-util-api)
+  > - [util-store](https://github.com/dbento-dev/bytebank-util-store)
+
+---
+
 ### 📜 Scripts Disponíveis
 
 - `npm run setup`: Prepara o ambiente, clonando os repositórios e instalando as dependências.
