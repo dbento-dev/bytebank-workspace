@@ -29,14 +29,14 @@ O objetivo é fornecer um ambiente de desenvolvimento robusto e fácil de gerenc
 A aplicação é composta por uma aplicação **shell** (`root`) que carrega e integra dinamicamente os outros micro-frontends e pacotes compartilhados.
 
 - **Aplicações (MFEs):**
-  - `root`: A aplicação principal (host) que renderiza o layout e gerencia o roteamento.
-  - `app-header`: O cabeçalho da aplicação.
-  - `app-dashboard`: O painel principal com o saldo e informações do usuário.
-  - `app-transactions`: A lista de transações.
+  - `root`: A aplicação principal (host) que renderiza o layout e gerencia o roteamento. [app-root](https://github.com/dbento-dev/bytebank-root)
+  - `app-header`: O cabeçalho da aplicação. [app-header](https://github.com/dbento-dev/bytebank-app-header)
+  - `app-dashboard`: O painel principal com o saldo e informações do usuário. [app-dashboard](https://github.com/dbento-dev/bytebank-app-dashboard)
+  - `app-transactions`: A lista de transações. [app-transactions](https://github.com/dbento-dev/bytebank-app-transactions)
 - **Pacotes Utilitários:**
-  - `util-ui`: Componentes de UI compartilhados (baseado em Material-UI).
-  - `util-api`: Funções e hooks para comunicação com a API.
-  - `util-store`: Lógica de estado global compartilhada (usando Zustand).
+  - `util-ui`: Componentes de UI compartilhados (baseado em Material-UI). [util-ui](https://github.com/dbento-dev/bytebank-util-ui)
+  - `util-api`: Funções e hooks para comunicação com a API. [util-api](https://github.com/dbento-dev/bytebank-util-api)
+  - `util-store`: Lógica de estado global compartilhada (usando Zustand). [util-store](https://github.com/dbento-dev/bytebank-util-store)
 
 #### Layout da Aplicação
 
@@ -123,16 +123,6 @@ bytebank-workspace/
 ├── README.md                # Documentação do projeto
 └── setup.sh                 # Script de setup inicial
 ```
-
-### Repositórios mfes clonados pelo script de setup
-
-  > - [app-root](https://github.com/dbento-dev/bytebank-root)
-  > - [app-header](https://github.com/dbento-dev/bytebank-app-header)
-  > - [app-dashboard](https://github.com/dbento-dev/bytebank-app-dashboard)
-  > - [app-transactions](https://github.com/dbento-dev/bytebank-app-transactions)
-  > - [util-ui](https://github.com/dbento-dev/bytebank-util-ui)
-  > - [util-api](https://github.com/dbento-dev/bytebank-util-api)
-  > - [util-store](https://github.com/dbento-dev/bytebank-util-store)
 
 ---
 
